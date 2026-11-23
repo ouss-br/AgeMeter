@@ -1,0 +1,281 @@
+
+/* =================================
+   1. TERMS SECTION
+================================= */
+
+.terms-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 75px auto 100px;
+    padding: 0 25px;
+}
+
+/* =================================
+   2. PAGE HEADING
+================================= */
+
+.terms-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.terms-heading h1 {
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+}
+
+.terms-heading p {
+    color: var(--muted);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.terms-heading span {
+     display: inline-block;
+    margin-top: 25px;
+    padding: 10px 17px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+/* =================================
+   3. TERMS CONTENT
+================================= */
+
+.terms-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.terms-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 25px 28px;
+    transition: var(--transition);
+}
+
+.terms-item:hover {
+    border-color: rgba(167, 139, 250, 0.5);
+}
+
+.terms-item h2 {
+    color: var(--primary);
+    font-size: 31px;
+    margin-bottom: 13px;
+    font-weight: 700;
+}
+
+.terms-item p {
+    color: var(--muted);
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.terms-item p:last-child {
+    margin-bottom: 0;
+}
+
+/* =================================
+   4. CONTACT NOTE
+================================= */
+
+.terms-contact {
+    margin-top: 25px;
+    padding: 22px 25px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--secondary);
+    border-radius: var(--radius);
+}
+
+.terms-contact p {
+    color: var(--muted);
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.terms-contact a {
+    color: var(--secondary);
+    transition: var(--transition);
+}
+
+.terms-contact a:hover {
+    color: var(--primary);
+}
+
+/* =================================
+   5. TABLET
+================================= */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .terms-section {
+        max-width: 850px;
+        margin-top: 65px;
+    }
+
+}
+
+/* =================================
+   6. MOBILE
+================================= */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .terms-section {
+        margin: 48px auto 65px;
+        padding: 0 20px;
+    }
+
+    .terms-heading {
+        margin-bottom: 35px;
+    }
+
+    .terms-heading h1 {
+        font-size: 32px;
+        letter-spacing: -1px;
+    }
+
+    .terms-heading p {
+        font-size: 14px;
+    }
+
+    .terms-heading span {
+        font-size: 12px;
+    }
+
+    .terms-content {
+        gap: 13px;
+    }
+
+    .terms-item {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .terms-item h2 {
+        font-size: 18px;
+    }
+
+    .terms-item p {
+        font-size: 14px;
+    }
+
+    .terms-contact {
+        padding: 18px 20px;
+    }
+
+    .terms-contact p {
+        font-size: 14px;
+    }
+
+}
+
+/* =================================
+   7. SMALL MOBILE
+================================= */
+
+@media (min-width: 350px) and (max-width: 480px) {
+
+    .terms-section {
+        margin: 38px auto 55px;
+        padding: 0 15px;
+    }
+
+    .terms-heading {
+        margin-bottom: 28px;
+    }
+
+    .terms-heading h1 {
+        font-size: 28px;
+        letter-spacing: -0.8px;
+    }
+
+    .terms-heading p {
+        font-size: 13px;
+    }
+
+    .terms-heading span {
+        font-size: 11px;
+    }
+
+    .terms-content {
+        gap: 11px;
+    }
+
+    .terms-item {
+        padding: 18px 16px;
+        border-radius: 14px;
+    }
+
+    .terms-item h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .terms-item p {
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .terms-contact {
+        padding: 17px 16px;
+    }
+
+    .terms-contact p {
+        font-size: 13px;
+    }
+
+}
+
+/* =================================
+   8. VERY SMALL SCREENS
+================================= */
+
+@media (max-width: 349px) {
+
+    .terms-section {
+        margin: 32px auto 45px;
+        padding: 0 12px;
+    }
+
+    .terms-heading h1 {
+        font-size: 25px;
+    }
+
+    .terms-heading p {
+        font-size: 12px;
+    }
+
+    .terms-heading span {
+        font-size: 10px;
+    }
+
+    .terms-item {
+        padding: 15px;
+    }
+
+    .terms-item h2 {
+        font-size: 15px;
+    }
+
+    .terms-item p {
+        font-size: 12px;
+    }
+
+    .terms-contact {
+        padding: 15px;
+    }
+
+    .terms-contact p {
+        font-size: 12px;
+    }
+
+}

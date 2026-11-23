@@ -1,0 +1,893 @@
+/* =================================
+   1. DESIGN SYSTEM
+================================= */
+
+:root {
+    --bg: #101116;
+    --surface: #1B1C25;
+    --surface-hover: #242631;
+
+    --primary: #A78BFA;
+    --primary-hover: #9173E8;
+
+    --secondary: #55D6E8;
+    --secondary-hover: #38BDD1;
+
+    --text: #F5F3FF;
+    --muted: #AAA8B8;
+    --border: #30303B;
+
+    --radius: 16px;
+    --transition: 0.25s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 50% -15%,
+            rgba(167, 139, 250, 0.13),
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 95% 45%,
+            rgba(85, 214, 232, 0.055),
+            transparent 30%
+        ),
+        #101116;
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    isolation: isolate;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =================================
+   2. HEADER
+================================= */
+
+.header {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 22px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo img {
+    width: 280px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav a {
+    color: var(--muted);
+    font-size: 23px;
+    transition: var(--transition);
+}
+
+.nav a:hover {
+    color: var(--secondary-hover);
+}
+
+/* =================================
+   3. MAIN CALCULATOR
+================================= */
+
+.calculator-section {
+    width: 100%;
+    max-width: 680px;
+    margin: 75px auto 100px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.calculator-section h1 {
+    font-size: 55px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 8px;
+}
+
+.calculator-section > p {
+    color: var(--muted);
+    font-size: 18px;
+    margin-bottom: 90px;
+}
+
+/* =================================
+   4. CALCULATOR CARD
+================================= */
+
+.calculator {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    text-align: left;
+}
+
+.calculator label {
+    display: block;
+    color: var(--text);
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.calculator input {
+    width: 100%;
+    min-height: 70px;
+    padding: 14px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    outline: none;
+    transition: var(--transition);
+}
+
+.calculator input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(85, 214, 232, 0.08);
+}
+
+.calculator input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.calculator button {
+    width: 100%;
+    min-height: 70px;
+    padding: 14px;
+    font-size: 20px;
+    background: var(--primary);
+    color: #17141F;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.calculator button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.calculator button:active {
+    transform: scale(0.98);
+}
+
+/* =================================
+   5. RESULTS
+================================= */
+
+#result {
+    margin-top: 25px;
+}
+
+.result-highlight {
+    color: var(--secondary);
+}
+
+.secondary-icon {
+    color: var(--secondary);
+}
+
+/* =================================
+   6. OTHER TOOLS
+================================= */
+
+.tools-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 90px;
+    padding: 0 25px;
+}
+
+.tools-section h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 23px;
+    transition: var(--transition);
+}
+
+.tool-card:hover {
+    background: var(--surface-hover);
+    border-color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.tool-card h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.tool-card p {
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.tool-result {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--surface-hover);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--secondary);
+    font-size: 18px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.tool-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.tool-card a:hover {
+    color: var(--secondary);
+}
+
+/* =================================
+   7. FOOTER
+================================= */
+
+.footer {
+    margin-top: 100px;
+    padding: 65px 7% 25px;
+    background: linear-gradient(180deg, #15151D 0%, #101116 100%);
+    border-top: 1px solid var(--border);
+    position: relative;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 15%;
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--secondary),
+        transparent
+    );
+    opacity: 0.6;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 1fr 1fr;
+    gap: 45px;
+}
+
+.footer-brand p {
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.9;
+    max-width: 300px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-column h3 {
+    color: var(--text);
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: var(--muted);
+    font-size: 18px;
+    transition: var(--transition);
+    width: fit-content;
+}
+
+.footer-column a:hover {
+    color: var(--secondary);
+    transform: translateX(4px);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 55px auto 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.footer-note {
+    text-align: right;
+}
+
+/* =================================
+   8. TIME-INSPIRED BACKGROUND
+================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 650px;
+    height: 650px;
+    top: -230px;
+    right: -220px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    background: repeating-conic-gradient(
+        from 0deg,
+        rgba(167, 139, 250, 0.10) 0deg 0.5deg,
+        transparent 0.5deg 6deg
+    );
+    -webkit-mask-image: radial-gradient(
+        circle,
+        transparent 0 43%,
+        black 43.5% 44%,
+        transparent 44.5% 47%,
+        black 47.5% 48%,
+        transparent 48.5% 100%
+    );
+    mask-image: radial-gradient(
+        circle,
+        transparent 0 43%,
+        black 43.5% 44%,
+        transparent 44.5% 47%,
+        black 47.5% 48%,
+        transparent 48.5% 100%
+    );
+    opacity: 0.55;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 420px;
+    height: 420px;
+    left: -230px;
+    bottom: -170px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    border: 1px solid rgba(85, 214, 232, 0.08);
+    box-shadow:
+        0 0 0 35px rgba(85, 214, 232, 0.015),
+        0 0 0 70px rgba(85, 214, 232, 0.012),
+        0 0 0 105px rgba(85, 214, 232, 0.008);
+}
+
+.header,
+main,
+.footer {
+    position: relative;
+}
+
+/* =================================
+   9. RESPONSIVE DESIGN
+   Existing project breakpoints:
+   Tablet: 768px - 1024px
+   Mobile: 481px - 767px
+   Small mobile: 350px - 480px
+   Very small: below 350px
+================================= */
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .header {
+        padding: 22px 35px;
+    }
+
+    .calculator-section {
+        max-width: 650px;
+        margin-top: 65px;
+    }
+
+    .tools-section {
+        padding: 0 35px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+/* Mobile: 481px - 767px */
+@media (min-width: 481px) and (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+
+    .header {
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .logo img {
+        width: 200px;
+    }
+
+    .nav {
+        gap: 16px;
+    }
+
+    .nav a {
+        font-size: 12px;
+    }
+
+    .calculator-section {
+        margin: 48px auto 65px;
+        padding: 0 18px;
+    }
+
+    .calculator-section h1 {
+        font-size: 32px;
+        letter-spacing: -1px;
+    }
+
+    .calculator-section > p {
+        font-size: 14px;
+        margin-bottom: 27px;
+    }
+
+    .calculator {
+        padding: 23px 20px;
+        border-radius: 18px;
+    }
+
+    .tools-section {
+        padding: 0 20px;
+        margin-bottom: 65px;
+    }
+
+    .tools-section h2 {
+        font-size: 21px;
+        margin-bottom: 18px;
+    }
+
+    .tools-grid {
+        gap: 12px;
+    }
+
+    .tool-card {
+        padding: 19px;
+        border-radius: 15px;
+    }
+
+    .footer {
+        margin-top: 65px;
+        padding: 45px 6% 22px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        margin-top: 35px;
+    }
+}
+
+/* Small mobile: 350px - 480px */
+@media (min-width: 350px) and (max-width: 480px) {
+    .header {
+        padding: 16px;
+    }
+
+    .logo img {
+        width: 170px;
+    }
+
+    .nav {
+        gap: 11px;
+    }
+
+    .nav a {
+        font-size: 11px;
+    }
+
+    .calculator-section {
+        margin-top: 38px;
+        padding: 0 15px;
+    }
+
+    .calculator-section h1 {
+        font-size: 28px;
+    }
+
+    .calculator-section > p {
+        font-size: 13px;
+        margin-bottom: 23px;
+    }
+
+    .calculator {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .calculator label {
+        font-size: 13px;
+    }
+
+    .calculator input,
+    .calculator button {
+        min-height: 50px;
+        font-size: 14px;
+    }
+
+    .tools-section {
+        padding: 0 15px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .tool-card {
+        padding: 17px;
+    }
+
+    .tool-card h3 {
+        font-size: 16px;
+    }
+
+    .tool-card p {
+        font-size: 12px;
+    }
+
+    .footer {
+        padding: 22px 15px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        margin-top: 35px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .footer-note {
+        text-align: left;
+    }
+}
+
+/* Very small screens: below 350px */
+@media (max-width: 349px) {
+    .header {
+        padding: 14px 11px;
+        gap: 8px;
+    }
+
+    .logo img {
+        width: 145px;
+    }
+
+    .nav {
+        gap: 8px;
+    }
+
+    .nav a {
+        font-size: 10px;
+    }
+
+    .calculator-section h1 {
+        font-size: 25px;
+    }
+
+    .tools-section {
+        padding: 0 12px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .tool-card {
+        padding: 15px;
+    }
+
+    .tool-card h3 {
+        font-size: 15px;
+    }
+
+    .tool-card p {
+        font-size: 12px;
+    }
+
+    .footer {
+        padding: 22px 12px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 14px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand p {
+        font-size: 16px;
+    }
+
+    .footer-column h3 {
+        font-size: 18px;
+    }
+
+    .footer-column a {
+        font-size: 14px;
+    }
+
+    .footer-bottom p {
+        font-size: 14px;
+    }
+}
+
+/* Reduce decorative background on smaller screens */
+@media (max-width: 600px) {
+    body::before {
+        width: 420px;
+        height: 420px;
+        top: -150px;
+        right: -210px;
+        opacity: 0.35;
+    }
+
+    body::after {
+        width: 280px;
+        height: 280px;
+        left: -190px;
+        bottom: -100px;
+    }
+}
+
+/* Respect device motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* Menu Button */
+
+.menu-container {
+    position: relative;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.menu-btn:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary);
+}
+
+.menu-icon {
+    font-size: 20px;
+}
+
+/* Dropdown */
+
+.menu-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 200px;
+    padding: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.menu-dropdown.active {
+    display: flex;
+}
+
+.menu-dropdown a {
+    padding: 12px;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.menu-dropdown a:hover {
+    background: var(--surface-hover);
+    color: var(--primary);
+}
+
+/* Mobile Menu - Hidden by default */
+.mobile-menu {
+    display: none;
+    position: relative;
+}
+
+.menu-btn {
+    padding: 10px 16px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 190px;
+    padding: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    z-index: 1000;
+}
+
+.menu-dropdown.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-dropdown a {
+    padding: 12px;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.menu-dropdown a:hover {
+    background: var(--surface-hover);
+    color: var(--primary);
+}
+
+/* Small Screens */
+@media (max-width: 767px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+
+/* Hide mobile menu on desktop */
+@media (min-width: 768px) {
+    .menu-btn,
+    .menu-dropdown {
+        display: none !important;
+    }
+
+    .desktop-nav {
+        display: flex;
+    }
+}
+
+/* Show mobile menu on small screens */
+@media (max-width: 767px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+}
